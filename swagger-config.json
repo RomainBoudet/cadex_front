@@ -1,0 +1,15 @@
+{
+    "swaggerDefinition": {
+        "info": {
+            "description": "Ceci est un serveur de génération de cadavre exquis. Si vous souhaitez en savoir plus sur l'API utilisée : https://thedev.fr/api-docs",
+            "title": "Cadex Front",
+            "version": "1.0.0"
+        },
+        "basePath": "/v1/cadex",
+        "produces": [
+            "application/json"
+        ],
+        "schemes": ["https"]
+    },
+    "files": ["./app/router.js"]
+}
