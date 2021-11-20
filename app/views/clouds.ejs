@@ -6,14 +6,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Run cloud cadex</title>
 
- <!--    <link href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.css"
+    <style nonce="<%=locals.nonce%>">
+        #vantajs {
+
+            width: 100vw;
+            height: 100vh;
+        }
+
+
+        h1,
+        p {
+            color: rgb(26, 74, 116);
+            text-align: center;
+            padding: 5rem;
+            margin: 0;
+
+        }
+
+        h1 {
+            color: black;
+        }
+
+        p {
+            font-size: 2rem;
+            text-shadow: 4px 8px 10px rgb(88, 165, 216);
+        }
+    </style>
+
+    <!--    <link href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.css"
         integrity="sha512-NmLkDIU1C/C88wi324HBc+S2kLhi08PN5GDeUVVVC/BVt/9Izdsc9SVeVfA1UZbY3sHUlDSyRXhCzHfr6hmPPw=="
         crossorigin="anonymous" /> -->
 
     <!--   <link href="https://fonts.googleapis.com/css?family=Bree+Serif&display=swap" rel="stylesheet">  -->
 
-      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="<%=locals.nonce%>" crossorigin="anonymous">
 
 
 
@@ -32,10 +59,6 @@
 
     <!--  pour plus d'infos sur vanta.js : https://www.vantajs.com/?effect=birds -->
 
-
-
-    <link rel="stylesheet" href="/css/style.css">
-
 </head>
 
 <body>
@@ -53,7 +76,7 @@
 
 
     <!--  Step 3 - Instilize the plugin by #id selector  -->
-    <script>
+    <script nonce="<%=locals.nonce%>" crossorigin="anonymous">
         VANTA.CLOUDS({
             el: "#vantajs",
             mouseControls: true,
@@ -65,12 +88,10 @@
     </script>
 
 
-<a href="https://github.com/RomainBoudet/cadex_front" target="_blank">
-    <img style="position: absolute; z-index: 2000; top: 0; right: 0; border: 0;"
-        src="https://filedn.eu/lD5jpSv048KLfgLMlwC2cLz/ForkMe.png"
-        alt="Fork me on GitHub link"
-        data-canonical-src="https://filedn.eu/lD5jpSv048KLfgLMlwC2cLz/ForkMe.png">
-</a>
+    <a href="https://github.com/RomainBoudet/cadex_front" target="_blank">
+        <img nonce="<%=locals.nonce%>" style="position: absolute; z-index: 5000; top: 0; right: 0; border: 0;"
+            src="https://filedn.eu/lD5jpSv048KLfgLMlwC2cLz/ForkMe.png" alt="Fork me on GitHub link" >
+    </a>
 
 
 </body>

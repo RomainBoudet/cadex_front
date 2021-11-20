@@ -3,6 +3,8 @@ require('dotenv').config();
 const express = require('express');
 const router = require('./app/router');
 const helmet = require('helmet');
+const crypto = require("crypto");
+const cors = require('cors');
 
 const app = express();
 
@@ -14,7 +16,35 @@ optionSwagger.basedir = __dirname;
 optionSwagger.swaggerDefinition.host = `localhost:${port}`;
 expressSwagger(optionSwagger);
 
-//app.use(helmet());
+// Config pour les sub-resources integrity qu'on devra insérer dans les views.
+  app.use((_, res, next) => {
+    res.locals.nonce = crypto.randomBytes(16).toString("hex");
+    next();
+  });
+
+//app.use(cors());
+
+//https://connect.ed-diamond.com/MISC/misc-101/vos-entetes-https-avec-helmet
+
+app.use(helmet()); //https://helmetjs.github.io/ 
+
+//je dois configurer la CSP pour autoriser mon serveur a utiliser du CSS et mes images cloud pour le rendu de la validation du mail
+app.use(helmet.contentSecurityPolicy({
+    directives: {
+      defaultSrc: [`'self'`,], // le fallback, pas présent par défault, 
+      "script-src": [(_, res) => `'nonce-${res.locals.nonce}'`, "https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js", "https://cdn.jsdelivr.net/npm/vanta@0.5.21/dist/vanta.clouds.min.js"],
+      "img-src": [`self`,`https://filedn.eu/lD5jpSv048KLfgLMlwC2cLz/ForkMe.png`], //je configure helmet pour la CSP : ok pour aller chercher mes images sur mon cloud perso, tout le reste, non!
+      //styleSrc: [ `self`,"'unsafe-inline'"], // ça s'était avant d'utiliser l'attribut nonce ! A bannir pour une CSP efficace... c'est pourquoi j'utilise uuid
+      "style-src": [ (_, res) => `'nonce-${res.locals.nonce}'`, "https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"], // je peux utiliser res ici je suis dans un app.use ! Je convertis dynamiquement le nonce de ma vue avec cette méthode, sans avoir besoin de mettre 'unsafe-inline' pour lire CSS de ma vue, ce qui affaiblirait considérablement ma CSP ! 
+     /// styleSrcElem:
+      upgradeInsecureRequests: [] // On convertit tout ce qui rentre en HTTP et HTTPS direct !
+    }
+  }))
+
+app.use((req, res, next) => {
+    res.setHeader("X-XSS-Protection", "1; mode=block");
+    next();
+  });
 
 app.use(express.static(`${__dirname}/app/static`));
 
