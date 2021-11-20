@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Run cloud cadex</title>
+
+ <!--    <link href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.css"
+        integrity="sha512-NmLkDIU1C/C88wi324HBc+S2kLhi08PN5GDeUVVVC/BVt/9Izdsc9SVeVfA1UZbY3sHUlDSyRXhCzHfr6hmPPw=="
+        crossorigin="anonymous" /> -->
+
+    <!--   <link href="https://fonts.googleapis.com/css?family=Bree+Serif&display=swap" rel="stylesheet">  -->
+
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+
+
+
+    <!--     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta@0.5.21/dist/vanta.waves.min.js"></script> -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/vanta@0.5.21/dist/vanta.clouds.min.js"></script>
+
+
+    <!-- https://cdn.jsdelivr.net/npm/vanta@0.5.21/dist/vanta.clouds.min.js -->
+
+    <!--     https://cdn.jsdelivr.net/npm/vanta@0.5.21/dist/vanta.globe.min.js -->
+
+    <!--  pour plus d'infos sur vanta.js : https://www.vantajs.com/?effect=birds -->
+
+
+
+    <link rel="stylesheet" href="/css/style.css">
+
+</head>
+
+<body>
+
+    <div id="vantajs">
+
+
+        <header class="quote">
+            <h1>Cloud cadex</h1>
+            <p>"<%= cadex %>"</p>
+        </header>
+
+
+    </div>
+
+
+    <!--  Step 3 - Instilize the plugin by #id selector  -->
+    <script>
+        VANTA.CLOUDS({
+            el: "#vantajs",
+            mouseControls: true,
+            touchControls: true,
+            gyroControls: true,
+            minHeight: 100.00,
+            minWidth: 200.00
+        })
+    </script>
+
+
+<a href="https://github.com/RomainBoudet/cadex_front" target="_blank">
+    <img style="position: absolute; z-index: 2000; top: 0; right: 0; border: 0;"
+        src="https://filedn.eu/lD5jpSv048KLfgLMlwC2cLz/ForkMe.png"
+        alt="Fork me on GitHub link"
+        data-canonical-src="https://filedn.eu/lD5jpSv048KLfgLMlwC2cLz/ForkMe.png">
+</a>
+
+
+</body>
+
+</html>

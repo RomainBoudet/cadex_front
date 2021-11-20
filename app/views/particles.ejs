@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Run Particles cadex</title>
+
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <script type="text/javascript" src="/js/node.js"></script>
+
+    <link rel="stylesheet" href="/css/styleParticles.css">
+
+</head>
+
+<body>
+
+    <script type="text/javascript">
+        var nodesjs = new NodesJs({
+            id: 'nodes',
+            width: window.innerWidth,
+            height: window.innerHeight,
+            particleSize: 2,
+            lineSize: 1,
+            particleColor: [255, 255, 255, 0.3],
+            lineColor: [255, 255, 255],
+            backgroundFrom: [10, 25, 100],
+            backgroundTo: [25, 50, 150],
+            backgroundDuration: 4000,
+            nobg: false,
+            number: window.hasOwnProperty('orientation') ? 30 : 100,
+            speed: 20,
+            pointerCircleRadius: 150
+        });
+    </script>
+
+
+
+    <div style="position: absolute; z-index: 1000; top: 0; right: 0; left: 0; border: 0;">
+
+
+        <header class="quote">
+            <h1 style="color:rgb(212, 229, 243)">Particles cadex</h1>
+            <p style="z-index: 3000;">"<%= cadex %>"</p>
+        </header>
+
+        <a href="https://github.com/RomainBoudet/cadex_front" target="_blank">
+            <img style="position: absolute; z-index: 2000; top: 0; right: 0; border: 0;"
+                src="https://filedn.eu/lD5jpSv048KLfgLMlwC2cLz/ForkMe.png"
+                alt="Fork me on GitHub link"
+                data-canonical-src="https://filedn.eu/lD5jpSv048KLfgLMlwC2cLz/ForkMe.png">
+        </a>
+    </div>
+
+    <div style="position: absolute; left: 0px; top: 0px; overflow: hidden; width: 100vw; height: 100vh;">
+
+        <canvas id="nodes"> </canvas>
+
+    </div>
+
+
+
+
+
+    <!-- <nodes.js embedding> -->
+
+
+
+
+
+
+    <!-- </nodes.js embedding> -->
+
+</body>
+
+</html>
