@@ -34,7 +34,9 @@ app.use(helmet.contentSecurityPolicy({
       defaultSrc: [`'self'`,], // le fallback, pas présent par défault, 
       "script-src": [(_, res) => `'nonce-${res.locals.nonce}'`],
       "img-src": [`'self'`,`https://filedn.eu/lD5jpSv048KLfgLMlwC2cLz/ForkMe.png`], //je configure helmet pour la CSP : ok pour aller chercher mes images sur mon cloud perso, tout le reste, non!
-      styleSrc: [ `'self'`,"'unsafe-inline'"], //
+      //"style-src-elem": [ (_, res) => `'nonce-${res.locals.nonce}'`, `https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css`], //
+      
+      "style-src": [ `'self'`,"'unsafe-inline'", "https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"], //
       "base-uri": ["'none'"],
       "object-src":["'none'"],
       //"style-src": [`'self'`, (_, res) => `'nonce-${res.locals.nonce}'`, "https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"], // je peux utiliser res ici je suis dans un app.use ! Je convertis dynamiquement le nonce de ma vue avec cette méthode, sans avoir besoin de mettre 'unsafe-inline' pour lire CSS de ma vue, ce qui affaiblirait considérablement ma CSP ! 
@@ -46,7 +48,7 @@ app.use(helmet.contentSecurityPolicy({
 app.use((req, res, next) => {
   res.setHeader(
     "Permissions-Policy",
-    "geolocation=(), interest-cohort=(), fullscreen=(), accelerometer=(), ambient-light-sensor=(), autoplay=(), battery=(), camera=(), display-capture=(), document-domain=(), document-domain=(), execution-while-not-rendered=(), execution-while-out-of-viewport=(), fullscreen=(), gamepad=(), gyroscope=(), layout-animations=(), legacy-image-formats=(), magnetometer=(), microphone=(), midi=(), navigation-override=(), oversized-images=(), payment=(), picture-in-picture=(), publickey-credentials-get=(), speaker-selection=(), sync-xhr=(), usb=(), screen-wake-lock=(), web-share=(), xr-spatial-tracking=()"
+    "geolocation=(), fullscreen=(), autoplay=(), camera=(), display-capture=(), document-domain=(), fullscreen=(), magnetometer=(), microphone=(), midi=(), payment=(), picture-in-picture=(), publickey-credentials-get=(), sync-xhr=(), usb=(), screen-wake-lock=(), xr-spatial-tracking=()"
   );
     res.setHeader("X-XSS-Protection", "1; mode=block");
     next();
