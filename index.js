@@ -13,7 +13,7 @@ const port = process.env.PORT || 5000;
 const expressSwagger = require('express-swagger-generator')(app);
 let optionSwagger = require('./swagger-config.json');
 optionSwagger.basedir = __dirname;
-optionSwagger.swaggerDefinition.host = `cadex-api.thedev.fr`;
+optionSwagger.swaggerDefinition.host = `cadex-front.thedev.fr`;
 expressSwagger(optionSwagger);
 
 // Config for sub-resources integrity 
