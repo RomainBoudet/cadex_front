@@ -2,7 +2,7 @@
 
 An API that retrieves data from an cadavre exquis for displaying in 2 dynamic wallpapers.
 
-This API uses data from this **[API](https://thedev.fr/api/v1/cadex)** : https://github.com/RomainBoudet/cadex
+This API uses data from this **[API](https://cadex-api.thedev.fr/api/v1/cadex)** : https://github.com/RomainBoudet/cadex
 
 ### Stack :
 
@@ -24,3 +24,4 @@ This API uses data from this **[API](https://thedev.fr/api/v1/cadex)** : https:/
 * 6) The swagger doc : http://localhost:yourPortnumber/api-docs
 
 
+##### You can try it online ;) : [particles cadex](https://cadex-front.thedev.fr/v1/cadex/particles) / [cloud cadex](https://cadex-front.thedev.fr/v1/cadex/cloud)
