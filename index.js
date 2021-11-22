@@ -32,10 +32,12 @@ app.use(helmet()); //https://helmetjs.github.io/
 app.use(helmet.contentSecurityPolicy({
     directives: {
       defaultSrc: [`'self'`,], // le fallback, pas présent par défault, 
-      "script-src": [(_, res) => `'nonce-${res.locals.nonce}'`, "https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js", "https://cdn.jsdelivr.net/npm/vanta@0.5.21/dist/vanta.clouds.min.js"],
-      "img-src": [`self`,`https://filedn.eu/lD5jpSv048KLfgLMlwC2cLz/ForkMe.png`], //je configure helmet pour la CSP : ok pour aller chercher mes images sur mon cloud perso, tout le reste, non!
-      styleSrc: [ `self`,"'unsafe-inline'"], //
-      //"style-src": [(_, res) => `'nonce-${res.locals.nonce}'`, "https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"], // je peux utiliser res ici je suis dans un app.use ! Je convertis dynamiquement le nonce de ma vue avec cette méthode, sans avoir besoin de mettre 'unsafe-inline' pour lire CSS de ma vue, ce qui affaiblirait considérablement ma CSP ! 
+      "script-src": [(_, res) => `'nonce-${res.locals.nonce}'`],
+      "img-src": [`'self'`,`https://filedn.eu/lD5jpSv048KLfgLMlwC2cLz/ForkMe.png`], //je configure helmet pour la CSP : ok pour aller chercher mes images sur mon cloud perso, tout le reste, non!
+      styleSrc: [ `'self'`,"'unsafe-inline'"], //
+      "base-uri": ["'none'"],
+      "object-src":["'none'"],
+      //"style-src": [`'self'`, (_, res) => `'nonce-${res.locals.nonce}'`, "https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"], // je peux utiliser res ici je suis dans un app.use ! Je convertis dynamiquement le nonce de ma vue avec cette méthode, sans avoir besoin de mettre 'unsafe-inline' pour lire CSS de ma vue, ce qui affaiblirait considérablement ma CSP ! 
      /// styleSrcElem:
       upgradeInsecureRequests: [] // On convertit tout ce qui rentre en HTTP et HTTPS direct !
     }
