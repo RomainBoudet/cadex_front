@@ -5,6 +5,7 @@ const cadexUrl = process.env.CADEXURL;
 const mainController = {
     cloud: async (req, res) => {
       try {
+
         const response = await fetch(cadexUrl);
         // on teste le code HTTP
         if (response.status !== 200) {

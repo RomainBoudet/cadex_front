@@ -4,7 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Run Particles cadex</title>
+    <link rel="shortcut icon" type="images/ico" href="/img/RB.png" />
+
+    <title>Particles cadex</title>
 
     <style nonce="<%=locals.nonce%>">
         #nodes {
@@ -47,6 +49,7 @@
 
 <body>
 
+
     <script nonce="<%=locals.nonce%>" crossorigin="anonymous" type="text/javascript">
         var nodesjs = new NodesJs({
             id: 'nodes',
@@ -83,10 +86,16 @@
                 data-canonical-src="https://filedn.eu/lD5jpSv048KLfgLMlwC2cLz/ForkMe.png"
                 >
         </a>
+
+        <!-- Logo a placer !!  -->
+        <a 
+        href="https://romainboudet.fr" target="_blank"><img style=" position: absolute; z-index: 2000; top: 10px; left: 10px; border: 0; width: 100px; " src="/img/RB.png" alt="logo RB"></a>
+
+
     </div>
 
     <div style="position: absolute; left: 0px; top: 0px; overflow: hidden; width: 100vw; height: 100vh;"
-        nonce="<%=locals.nonce%>" crossorigin="anonymous">
+        >
 
         <canvas id="nodes"> </canvas>
 

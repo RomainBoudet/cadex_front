@@ -71,5 +71,5 @@ app.use('/v1/cadex', router);
 
 
 app.listen(port, () => {
-  console.log(`APIS Running on https://localhost:${port}/v1/cadex`);
+  console.log(`APIS Running on http://localhost:${port}/v1/cadex/particles`);
 });
