@@ -26,7 +26,7 @@ expressSwagger(optionSwagger);
 
 //https://connect.ed-diamond.com/MISC/misc-101/vos-entetes-https-avec-helmet
 
-app.use(helmet()); 
+//app.use(helmet()); 
 
 // CSP configuration and headers security
 app.use(helmet.contentSecurityPolicy({
@@ -43,16 +43,7 @@ app.use(helmet.contentSecurityPolicy({
     }
   }))
 
-app.use((req, res, next) => {
-  res.setHeader(
-    "Permissions-Policy",
-    "geolocation=(), fullscreen=(), autoplay=(), camera=(), display-capture=(), document-domain=(), fullscreen=(), magnetometer=(), microphone=(), midi=(), payment=(), picture-in-picture=(), publickey-credentials-get=(), sync-xhr=(), usb=(), screen-wake-lock=(), xr-spatial-tracking=()"
-  );
-    res.setHeader("X-XSS-Protection", "1; mode=block");
-    next();
-  });
 
-app.set('x-powered-by', false);
 
 
 app.use(express.static(`${__dirname}/app/static`));
